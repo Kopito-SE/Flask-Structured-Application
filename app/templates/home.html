@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <h2>All Products</h2>
+
+    {% for product in products %}
+        <div>
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <strong>Ksh {{ product.price }}</strong>
+            <hr>
+        </div>
+    {% endfor %}
+
+    <a href="{{ url_for('main.add_product') }}">Add Product</a>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Register - FlaskApp{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h2 class="auth-title">Create Account</h2>
+        
+        <form method="POST" action="{{ url_for('auth.register') }}" class="auth-form" id="registerForm">
+            <input type="text" style="display:none" aria-hidden="true">
+            <input type="password" style="display:none" aria-hidden="true">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+        
+        <div class="auth-footer">
+            Already have an account? <a href="{{ url_for('auth.login') }}">Login here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock %}
